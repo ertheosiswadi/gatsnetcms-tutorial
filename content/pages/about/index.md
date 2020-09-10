@@ -1,9 +1,10 @@
 ---
 templateKey: about-page
 title: About Page
-date: "2029-05-01T22:12:03.284Z"
-description: "This is the about page"
-type: "page"
+date: 2029-05-01T22:12:03.284Z
+description: This is the about page
+type: page
+pageimage: hero-home-3.png
 ---
 
 This is me look at me
