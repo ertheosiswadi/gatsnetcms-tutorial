@@ -1,0 +1,12 @@
+a {
+  box-shadow: none;
+}
+
+div.logo img {
+  max-height: 60px;
+  margin-bottom: 0px;
+}
+
+div.footer-widget__logo img {
+  max-width: 200px;
+}
