@@ -12,9 +12,13 @@ const Layout = ({ location, title, children }) => {
     // script.async = true;
     script.src = "/assets/js/main.js";
     script.className = 'main-script'
-    if(document.body.getElementsByClassName('main-script').length == 0){
-      document.body.appendChild(script);
-    }
+    // if(document.body.getElementsByClassName('main-script').length == 0){
+    //   document.body.appendChild(script);
+    // }
+    document.querySelectorAll('.main-script').forEach(function(a) {
+      a.remove()
+    })
+    document.body.appendChild(script);
   });
 
   const rootPath = `${__PATH_PREFIX__}/`
@@ -63,7 +67,7 @@ const Layout = ({ location, title, children }) => {
                   <div class="col-lg-12 d-none d-md-block">
                       <div class="top-logo-area">
                           <div class="logo text-md-center">
-                              <a href="index.html"><img src="assets/images/logo/logo.png" alt=""/></a>
+                              <a href="index.html"><img src="/assets/images/logo/logo-1.png" alt=""/></a>
                           </div>
                       </div>
                   </div>
@@ -74,7 +78,7 @@ const Layout = ({ location, title, children }) => {
                           <a href="#" class=""><span cl ass="phone-number font-lg-p"> <i class="fa fa-whatsapp" aria-hidden="true"></i> 081628376462 </span></a>
                       </div>
                       <div class="logo__hidden text-left">
-                          <a href="#"><img src="assets/images/logo/logo.png" alt=""/></a>
+                          <a href="#"><img src="/assets/images/logo/logo-1.png" alt=""/></a>
                       </div>
                   </div>
 
@@ -83,10 +87,10 @@ const Layout = ({ location, title, children }) => {
                           <nav class="navigation-menu">
                               <ul class="justify-content-center">
                                   <li>
-                                      <a href="#"><span>Home</span></a>
+                                      <Link to='/'><span>Home</span></Link>
                                   </li>
                                   <li>
-                                      <a href="#"><span>Products</span></a>
+                                      <Link to='/products'><span>Products</span></Link>
                                   </li>
                                   <li>
                                       <a href="#"><span>About Us</span></a>
@@ -141,7 +145,7 @@ const Footer = () => {
           <div class="row footer-widget-wrapper">
               <div class="col-lg-3 col-md-3 col-sm-6 footer-widget">
                   <div class="footer-widget__logo mb-20">
-                      <a href="#"><img src="assets/images/logo/logo.png" alt=""/></a>
+                      <a href="#"><img src="/assets/images/logo/logo-1.png" alt=""/></a>
                   </div>
                   <ul class="footer-widget__list">
                       <li><i class="icon_pin"></i> Senpai, Jakarta Utara, 10231</li>
@@ -206,10 +210,10 @@ const Footer = () => {
                   <nav class="offcanvas-navigation">
                       <ul>
                           <li class="has-children">
-                              <a href="#">Home</a>
+                              <Link to='/'>Home</Link>
                           </li>
                           <li class="has-children">
-                              <a href="#">Products</a>
+                              <Link to='/products'>Products</Link>
                           </li>
                           <li class="has-children">
                               <a href="#">About Us</a>

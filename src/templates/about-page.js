@@ -37,7 +37,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                                                     </div>
                                                     <div class="inner-images">
                                                         <div class="image-one">
-                                                            <img src="assets/images/cms/hero-home-3.png" class="img-fluid" alt="Image"/>
+                                                            <img src="/assets/images/cms/hero-home-3.png" class="img-fluid" alt="Image"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -63,7 +63,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                                                     </div>
                                                     <div class="inner-images">
                                                         <div class="image-one">
-                                                            <img src="assets/images/cms/hero-home-1.png" class="img-fluid" alt="Image"/>
+                                                            <img src="/assets/images/cms/hero-home-1.png" class="img-fluid" alt="Image"/>
                                                         </div>
                                                     </div>
                                                 </div>
