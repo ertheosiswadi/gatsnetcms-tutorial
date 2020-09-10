@@ -27,9 +27,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                                                 <div class="hero-content-wrap">
                                                     <div class="hero-text-7 mt-lg-5">
                                                         <h6 class="mb-20">
-                                                            Helendo store
+                                                            TAJIRA
                                                         </h6>
-                                                        <h1>Hailey <br/> Wooden Chair</h1>
+                                                        <h1>Zen Black <br/> Shinjuku 120mm</h1>
 
                                                         <div class="button-box section-space--mt_60">
                                                             <a href="shop-left-sidebar.html" class="text-btn-normal font-weight--reguler font-lg-p">Discover now</a>
@@ -37,7 +37,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                                                     </div>
                                                     <div class="inner-images">
                                                         <div class="image-one">
-                                                            <img src="assets/images/hero/home-box-1.png" class="img-fluid" alt="Image"/>
+                                                            <img src="assets/images/cms/hero-home-3.png" class="img-fluid" alt="Image"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -53,9 +53,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                                                 <div class="hero-content-wrap">
                                                     <div class="hero-text-7 mt-lg-5">
                                                         <h6 class="mb-20">
-                                                            Helendo store
+                                                            TOJIRO
                                                         </h6>
-                                                        <h1>Hailey <br/> Wooden Chair</h1>
+                                                        <h1>Ash Tray <br/> VGN 100mm</h1>
 
                                                         <div class="button-box section-space--mt_60">
                                                             <a href="shop-left-sidebar.html" class="text-btn-normal font-weight--reguler font-lg-p">Discover now</a>
@@ -63,7 +63,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                                                     </div>
                                                     <div class="inner-images">
                                                         <div class="image-one">
-                                                            <img src="assets/images/hero/home-box-2.png" class="img-fluid" alt="Image"/>
+                                                            <img src="assets/images/cms/hero-home-1.png" class="img-fluid" alt="Image"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -84,17 +84,27 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="about-us-content_6 text-center">
-                                <h2>Helendo Store</h2>
-                                <p>When you start with a portrait and search for a pure form, a clear volume, through successive eliminations,
-                                    you arrive inevitably at the egg. Likewise, starting with the egg and following the same process in reverse,
-                                    one finishes with the portrait.
+                                <h2>Upscale Living</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit cras, vestibulum conubia in massa enim varius mauris penatibus natoque, mollis ridiculus nibh nunc odio venenatis tellus. Potenti ridiculus id vitae mollis facilisis risus mauris quisque urna maecenas in, sociis class posuere arcu nisi luctus convallis viverra euismod. Conubia integer nunc sit felis tellus donec erat dui interdum, nibh mi vestibulum nascetur dolor convallis magnis cursus, fringilla vel cum egestas suscipit quisque nam scelerisque.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        
+
+            <div class="banner-video-area overflow-hidden">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="video-container">
+                                <iframe class="video" src="https://www.youtube.com/embed/jrTMMG0zJyI?start=617" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
       {/* <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}

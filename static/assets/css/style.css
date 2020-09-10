@@ -1,25 +1,25 @@
 @charset "UTF-8";
 /*============================
-    CSS Index         
+    CSS Index
 ==============================
 
     01. Default Css
-        - Breadvrumb   
-        - Scroll top 
+        - Breadvrumb
+        - Scroll top
     02. Section Spacing Css
     03. Offcanvas Minicart Area
-    04. container Css 
-    05. Header Css 
-        - Left Sidebar Menu 
+    04. container Css
+    05. Header Css
+        - Left Sidebar Menu
         - Navigation Menu Css
         - Multilevel Submenu Css
         - Mega Menu Css
         - Mobile Menu Overlay Css
     06. Footer Css
-    07. Sidebar Css 
-    08. Hero Slider Css 
-    09. About Us Css 
-    10. Product Details Css 
+    07. Sidebar Css
+    08. Hero Slider Css
+    09. About Us Css
+    10. Product Details Css
     11. Shop Pages Css
     12. Cart & Checkout Pages Css
     13. Contact Us Pages Css
@@ -27,12 +27,12 @@
     15. Button Css
     16. Featuted Product Css
     17. Product Css
-    18. Product Tab list Css 
-    19. Single Product details Css 
+    18. Product Tab list Css
+    19. Single Product details Css
     20. Countdown Css
     21. Blog Css
-    22. Newsletter Css 
-    23. Banner Product Css 
+    22. Newsletter Css
+    23. Banner Product Css
     24. Brand Css
 
 
@@ -41,6 +41,7 @@
 =             01. Default Css                 =
 =============================================*/
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Mr+De+Haviland&family=Prata&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -583,7 +584,7 @@ input[type="checkbox"] {
 }
 
 /*===================================
-    - Breadvrumb  
+    - Breadvrumb
 =================================*/
 .breadcrumb-area {
   background-color: #f4f5f7;
@@ -675,7 +676,7 @@ input[type="checkbox"] {
 }
 
 /*=============================================
-   - Scroll top         
+   - Scroll top
 =============================================*/
 .scroll-top {
   position: fixed;
@@ -2706,7 +2707,7 @@ input[type="checkbox"] {
   color: #999;
 }
 
-/*============================== 
+/*==============================
     - Navigation Menu Css
 ===============================*/
 .navigation-menu > ul {
@@ -3031,7 +3032,7 @@ input[type="checkbox"] {
   color: #dcb14a;
 }
 
-/*================================ 
+/*================================
     - Mobile Menu Overlay Css
 ==================================*/
 .mobile-menu-overlay {
@@ -4708,7 +4709,7 @@ input[type="checkbox"] {
 
 .about-us-content_6 h2 {
   font-size: 60px;
-  font-family: 'Mr De Haviland', cursive;
+  font-family: 'Nothing You Could Do', cursive;
   margin-bottom: 20px;
 }
 
@@ -6951,7 +6952,7 @@ h3.cart-page-title {
 }
 
 /*================================================
-=                 17. Product Css             =       
+=                 17. Product Css             =
 ==================================================*/
 .single-product-item {
   margin-top: 30px;
@@ -7182,7 +7183,7 @@ h3.cart-page-title {
 }
 
 /*================================================
-=       18. Product Tab list Css             =       
+=       18. Product Tab list Css             =
 ==================================================*/
 .product-tab-menu li {
   padding: 0 17px;
@@ -7230,7 +7231,7 @@ h3.cart-page-title {
 }
 
 /*================================================
-=     19. Single Product details Css             =       
+=     19. Single Product details Css             =
 ==================================================*/
 .product-modal-box .modal-dialog {
   margin: 5% auto 8%;

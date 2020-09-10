@@ -676,12 +676,12 @@
         windowWidth = $(window).width()
     console.log('REVEALID IS', revealId, 'window width', windowWidth, 'height footer', $(".reveal-footer").height())
 
-    if (windowWidth > 991) {
-        $(".site-wrapper-reveal").css({
-            'margin-bottom': 572.798 + 'px'
-        });
-        console.log('REVEALID IN')
-    }
+    // if (windowWidth > 991) {
+    //     $(".site-wrapper-reveal").css({
+    //         'margin-bottom': 572.798 + 'px'
+    //     });
+    //     console.log('REVEALID IN')
+    // }
     console.log('REVEALID OUT')
 
     //  instagramFeed

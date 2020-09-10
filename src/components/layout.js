@@ -57,46 +57,59 @@ const Layout = ({ location, title, children }) => {
   }
   header = (
     <div class="header-area header-area--default bg-white">
-      <header class="header-area header_absolute header_height-90 header-sticky">
-        <div class="container-fluid container-fluid--cp-100">
-          <div class="row align-items-center">
-            <div class="col-lg-3 col-lg-3 col-6">
-                <div class="logo text-left">
-                    <a href="#"><img src="assets/images/logo/logo.png" alt=""/></a>
-                </div>
-            </div>
-          <div class="col-lg-6 col-lg-6  d-none d-lg-block">
-            <div class="header__navigation d-none d-lg-block">
-                <nav class="navigation-menu">
-                    <ul class="justify-content-center">
-                        <li>
-                            <a href="#"><span>Home</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>Products</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>About Us</span></a>
-                        </li>
-                        <li>
-                            <a href="#"><span>Blog</span></a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-          </div>
-          <div class="col-lg-3 col-lg-3 col-6">
-            <div class="header-right-side text-right">
+      <header class="header-area   header-sticky">
+          <div class="container-fluid container-fluid--cp-100">
+              <div class="row">
+                  <div class="col-lg-12 d-none d-md-block">
+                      <div class="top-logo-area">
+                          <div class="logo text-md-center">
+                              <a href="index.html"><img src="assets/images/logo/logo.png" alt=""/></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row align-items-center pt-3 pb-3">
+                  <div class="col-lg-3 col-lg-3 col-6">
+                      <div class="header-right-items content__hidden d-none d-md-block">
+                          <a href="#" class=""><span cl ass="phone-number font-lg-p"> <i class="fa fa-whatsapp" aria-hidden="true"></i> 081628376462 </span></a>
+                      </div>
+                      <div class="logo__hidden text-left">
+                          <a href="#"><img src="assets/images/logo/logo.png" alt=""/></a>
+                      </div>
+                  </div>
 
-                <div class="header-right-items ">
-                <a href="#" class="mobile-navigation-icon" id="mobile-menu-trigger">
-                    <i class="icon-menu"></i>
-                </a>
-                </div>
-            </div>
+                  <div class="col-lg-6 col-lg-6  d-none d-lg-block">
+                      <div class="header__navigation d-none d-lg-block">
+                          <nav class="navigation-menu">
+                              <ul class="justify-content-center">
+                                  <li>
+                                      <a href="#"><span>Home</span></a>
+                                  </li>
+                                  <li>
+                                      <a href="#"><span>Products</span></a>
+                                  </li>
+                                  <li>
+                                      <a href="#"><span>About Us</span></a>
+                                  </li>
+                                  <li>
+                                      <a href="#"><span>Blog</span></a>
+                                  </li>
+
+                              </ul>
+                          </nav>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-lg-3 col-6">
+                      <div class="header-right-side text-right">
+                          <div class="header-right-items ">
+                              <a href="#" class="mobile-navigation-icon" id="mobile-menu-trigger">
+                                  <i class="icon-menu"></i>
+                              </a>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
           </div>
-          </div>
-        </div>
       </header>
     </div>
   )
