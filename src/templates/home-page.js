@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import homeStyles from '../styles/home.module.css'
@@ -12,7 +11,7 @@ const HomePageTemplate = ({ data, pageContext, location }) => {
   const page = data.markdownRemark.frontmatter
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
-  
+
   return (
     <Layout location={location} title={siteTitle}>
       <div class="hero-box-area">
