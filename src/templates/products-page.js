@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
+import unified from 'unified'
+import markdown from 'remark-parse'
+import html from 'remark-html'
 import Layout from "../components/layout"
 import ProductListitem from "../components/ProductListItem"
 import ProductModal from "../components/ProductModal"
@@ -8,9 +11,12 @@ const ProductsPageTemplate = ({ data, pageContext, location }) => {
   const [modal, setModal] = useState({
     name: 'x',
     price: '',
-    inStock: false,
-    description: '',
-    tag:''
+    isInStock: false,
+    descShort: '',
+    descAll: '',
+    tag:'',
+    thumbnail: '',
+    images: []
   })
   const [isModalOpen, setIsModalOpen] = useState(false)
   const products = data.allMarkdownRemark.edges
@@ -54,23 +60,28 @@ const ProductsPageTemplate = ({ data, pageContext, location }) => {
                       <div class="row">
                           {products.map((product, index) => {
                             product = product.node.frontmatter;
-                            console.log(product)
+                            console.log(product, product.blackLabel)
                             return (
                               <ProductListitem
                                 name={product.name}
                                 price={product.price}
                                 redLabel={product.redLabel}
+                                blackLabel={product.blackLabel}
                                 imageSrc={product.thumbnail}
                                 key={index}
-                                onClick={() => {
-                                  console.log('damn')
+                                onClick={async () => {
+                                  let descShort = await unified().use(markdown).use(html).process(product.description.substring(0, 400) + '...')
+                                  let descAll = await unified().use(markdown).use(html).process(product.description)
+
                                   setModal({
                                     name: product.name,
                                     price: product.price,
-                                    inStock: product.isInStock,
-                                    description: product.description,
+                                    isInStock: product.isInStock,
+                                    descShort: String(descShort),
+                                    descAll: String(descAll),
                                     tag: product.tag,
-                                    images: product.images
+                                    images: product.images,
+                                    thumbnail: product.thumbnail
                                   })
                                   setIsModalOpen(true)
                                 }}
@@ -89,186 +100,6 @@ const ProductsPageTemplate = ({ data, pageContext, location }) => {
                             blackLabel="Out of Stock"
                             imageSrc="/assets/images/cms/products-all.jpg"
                           /> */}
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">1,0</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">2,0</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">3,0</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">0,1</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">1,1</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                          <span class="ribbon out-of-stock ">
-                                          Out Of Stock
-                                      </span>
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">2,1</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">3,1</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-3 col-md-4 col-sm-6">
-                              <div class="single-product-item text-center">
-                                  <div class="products-images">
-                                      <a href="#" class="product-thumbnail">
-                                          <img src="/assets/images/cms/products-all.jpg" class="img-fluid" alt="Product Images"/>
-
-                                      </a>
-                                      <div class="product-actions">
-                                          <a href="#" data-toggle="modal" data-target="#prodect-modal"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
-                                          <a href="#"><i class="p-icon icon-bag2"></i> <span class="tool-tip">Add to cart</span></a>
-                                          <a href="#"><i class="p-icon icon-heart"></i> <span class="tool-tip">Browse Wishlist</span></a>
-                                      </div>
-                                  </div>
-                                  <div class="product-content">
-                                      <h6 class="prodect-title"><a href="#">0,2</a></h6>
-                                      <div class="prodect-price">
-                                          <span class="new-price">Rp. 4.500.000</span>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
                       </div>
                   </div>
               </div>
@@ -278,9 +109,12 @@ const ProductsPageTemplate = ({ data, pageContext, location }) => {
     <ProductModal
       name={modal.name}
       price={modal.price}
-      inStock={modal.isInStock}
-      description={modal.description}
+      isInStock={modal.isInStock}
+      descShort={modal.descShort}
+      descAll={modal.descAll}
       tag={modal.tag}
+      images={modal.images}
+      thumbnail={modal.thumbnail}
       isOpen={isModalOpen}
       toggle={() => setIsModalOpen(!isModalOpen)}
     />
@@ -358,6 +192,7 @@ export const pageQuery = graphql`
             images {
               image
             }
+            tag
             redLabel
             blackLabel
           }

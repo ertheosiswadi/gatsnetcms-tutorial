@@ -112,7 +112,8 @@ collections:
       - { label: 'Product Label', name: 'name', widget: 'string' }
       - { label: 'Price', name: 'price', widget: 'string' }
       - { label: 'In Stock', name: 'isInStock', widget: 'boolean' }
-      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'markdown' }
+      - { label: 'Tag', name: 'tag', widget: 'string', default: '', required: false }
       - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
       - { label: 'Images', name: 'images', widget: list, default: [], fields: [
           { label: 'Image', name: 'image', widget: 'image' }
