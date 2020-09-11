@@ -42,15 +42,16 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
-    createPage({
-      path: post.node.fields.slug, //specifies the path in the url
-      component: path.resolve(`./src/templates/${post.node.frontmatter.templateKey}.js`),
-      context: {
-        slug: post.node.fields.slug, // this is used as the parameter to pass into the graphql query
-        previous,
-        next,
-      },
-    })
+    if(post.node.frontmatter.templateKey != "none")
+      createPage({
+        path: post.node.fields.slug, //specifies the path in the url
+        component: path.resolve(`./src/templates/${post.node.frontmatter.templateKey}.js`),
+        context: {
+          slug: post.node.fields.slug, // this is used as the parameter to pass into the graphql query
+          previous,
+          next,
+        },
+      })
   })
 
   // // Query pages.

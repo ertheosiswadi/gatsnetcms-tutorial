@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: master
 
+local_backend: true
+
 media_folder: static/img
 public_folder: /img
 
@@ -15,24 +17,105 @@ collections:
     public_folder: ''
     path: '{{title}}/index'
     editor:
-      preview: false
+      preview: true
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'pages'
-    label: 'Pages'
-    folder: 'content/pages'
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/pages/index.md"
+        label: "Landing Page"
+        name: "index"
+        media_folder: '/static/assets/images/pages/index'
+        public_folder: '/assets/images/pages/index'
+        fields:
+          - {label: "Page ID", name: "id", widget: "hidden", default: "home"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
+          - {label: Slider, name: heroSlider, widget: object, fields: [{label: Slide1, name: slide1, widget: object, fields: [{label: "Slide 1 Image", name: image, widget: image}, {label: "Brand Name", name: brandname, widget: string}, {label: "Name 1", name: itemname_one, widget: string}, {label: "Name 2", name: itemname_two, widget: string}]}, {label: Slide2, name: slide2, widget: object, fields: [{label: "Slide 2 Image", name: image, widget: image}, {label: "Brand Name", name: brandname, widget: string}, {label: "Name 1", name: itemname_one, widget: string}, {label: "Name 2", name: itemname_two, widget: string}]}]}
+          - {label: "Message Paragraph", name: messageParagraph, widget: object, fields: [
+              {label: Header, name: messageHeader, widget: string},
+              {label: Body, name: messageBody, widget: string}
+            ]}
+          - {label: "Youtube Video", name: videoUrl, widget: string}
+          - {label: Layout, name: layout, widget: object, fields: [
+              {label: Logo, name: logo, widget: image},
+              {label: Company Name, name: companyName, widget: string},
+              {label: WA number, name: waNum, widget: string},
+              {label: WA Link, name: waUrl, widget: string},
+              {label: Address, name: address, widget: string},
+              {label: Email, name: email, widget: string},
+              {label: Facebook Link, name: facebook, widget: string},
+              {label: Twitter Link, name: twitter, widget: string},
+              {label: Instagram Link, name: instagram, widget: string},
+            ]}
+      - file: "content/pages/about/index.md"
+        label: "About Us"
+        name: "about"
+        media_folder: '/static/assets/images/pages/about'
+        public_folder: '/assets/images/pages/about'
+        fields:
+          - {label: "Page ID", name: "id", widget: "hidden", default: "about"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Youtube Video", name: videoUrl, widget: string}
+          - {label: Gallery, name: gallery, widget: object, fields: [
+              {label: Label, name: label, widget: string},
+              {label: Image 1, name: image_one, widget: image},
+              {label: Image 2, name: image_two, widget: image},
+              {label: Image 3, name: image_three, widget: image},
+              {label: Image 4, name: image_four, widget: image},
+              {label: Image 5, name: image_five, widget: image}
+            ]}
+          - {label: "Short Message One", name: messageOne, widget: object, fields: [
+              {label: Header, name: header, widget: string},
+              {label: Body, name: body, widget: string}
+            ]}
+          - {label: "Short Message Two", name: messageTwo, widget: object, fields: [
+              {label: Header, name: header, widget: string},
+              {label: Body, name: body, widget: string}
+            ]}
+          - {label: "Core Values", name: coreValues, widget: object, fields: [
+              {label: One, name: one, widget: object, fields: [
+                {label: Header, name: header, widget: string},
+                {label: Body, name: body, widget: string}
+              ]},
+              {label: Two, name: two, widget: object, fields: [
+                {label: Header, name: header, widget: string},
+                {label: Body, name: body, widget: string}
+              ]},
+              {label: Three, name: three, widget: object, fields: [
+                {label: Header, name: header, widget: string},
+                {label: Body, name: body, widget: string}
+              ]},
+              {label: Four, name: four, widget: object, fields: [
+                {label: Header, name: header, widget: string},
+                {label: Body, name: body, widget: string}
+              ]},
+            ]}
+
+  - name: 'products'
+    label: 'Products'
+    folder: 'content/products'
     create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
+    media_folder: '/static/assets/images/products'
+    public_folder: '/assets/images/products'
+    slug: "{{year}}-{{month}}-{{day}}-{{second}}_{{name}}"
+    preview_path: 'product/{{slug}}'
     editor:
-      preview: false
+      preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "none"}
+      - { label: "Type", name: "type", widget: "hidden", default: "product"}
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Product Label', name: 'name', widget: 'string' }
+      - { label: 'Price', name: 'price', widget: 'string' }
+      - { label: 'In Stock', name: 'isInStock', widget: 'boolean' }
       - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
+      - { label: 'Images', name: 'images', widget: list, default: [], fields: [
+          { label: 'Image', name: 'image', widget: 'image' }
+        ]}
+      - { label: 'Red Label', name: 'redLabel', widget: 'string', default: '', required: false }
+      - { label: 'Black Label', name: 'blackLabel', widget: 'string', default: '', required: false }

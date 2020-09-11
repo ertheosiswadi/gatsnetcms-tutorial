@@ -7,159 +7,229 @@ import SEO from "../components/seo"
 import homeStyles from '../styles/home.module.css'
 import '../styles/home.css'
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+const AboutPageTemplate = ({ data, pageContext, location }) => {
+  const page = data.markdownRemark.frontmatter
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  console.log('about page data', page)
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div class="hero-box-area">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-lg-12">
+      <div class="breadcrumb-area">
+          <div class="container">
+              <div class="row">
+                  <div class="col-12">
+                      <div class="row breadcrumb_box  align-items-center">
+                          <div class="col-lg-6 col-md-6 col-sm-6 text-center text-sm-left">
+                              <h2 class="breadcrumb-title">About Us</h2>
+                          </div>
+                          <div class="col-lg-6  col-md-6 col-sm-6">
+                              <ul class="breadcrumb-list text-center text-sm-right">
+                                  <li class="breadcrumb-item"><Link to='/'>Home</Link></li>
+                                  <li class="breadcrumb-item active">About Us</li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="site-wrapper-reveal border-bottom">
+          <div class="about-us-pages-area">
+              <div class="banner-video-area overflow-hidden section-space--pt_90">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-12">
+                              <div class="video-container">
+                                  <iframe class="video" src={page.videoUrl} allowFullScreen></iframe>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-                            <div class="hero-area hero-slider-7">
-                                <div class="single-hero-slider-7">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="hero-content-wrap">
-                                                    <div class="hero-text-7 mt-lg-5">
-                                                        <h6 class="mb-20">
-                                                            TAJIRA
-                                                        </h6>
-                                                        <h1>Zen Black <br/> Shinjuku 120mm</h1>
+              <div class="our-customer-suppoer-area">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                              <div class="single-support-item">
+                                  <div class="header-support">
+                                      <div class="icon">
+                                          <i class="icon-bag2"></i>
+                                      </div>
+                                      <h6><a href="#">{page.coreValues.one.header}</a></h6>
+                                  </div>
+                                  <div class="iconbox-desc">
+                                      <p>{page.coreValues.one.body}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                              <div class="single-support-item">
+                                  <div class="header-support">
+                                      <div class="icon">
+                                          <i class="icon-cash-dollar"></i>
+                                      </div>
+                                      <h6><a href="#">{page.coreValues.two.header}</a></h6>
+                                  </div>
+                                  <div class="iconbox-desc">
+                                      <p>{page.coreValues.two.body}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                              <div class="single-support-item">
+                                  <div class="header-support">
+                                      <div class="icon">
+                                          <i class="icon-paper-plane"></i>
+                                      </div>
+                                      <h6><a href="#">{page.coreValues.three.header}</a></h6>
+                                  </div>
+                                  <div class="iconbox-desc">
+                                      <p>{page.coreValues.three.body}</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 col-sm-6 col-6">
+                              <div class="single-support-item">
+                                  <div class="header-support">
+                                      <div class="icon">
+                                          <i class="icon-history"></i>
+                                      </div>
+                                      <h6><a href="#">{page.coreValues.four.header}</a></h6>
+                                  </div>
+                                  <div class="iconbox-desc">
+                                      <p>{page.coreValues.four.body}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-                                                        <div class="button-box section-space--mt_60">
-                                                            <a href="shop-left-sidebar.html" class="text-btn-normal font-weight--reguler font-lg-p">Discover now</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="inner-images">
-                                                        <div class="image-one">
-                                                            <img src="/assets/images/cms/hero-home-3.png" class="img-fluid" alt="Image"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+              <div class="perfection-area section-space--pt_90">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-6">
+                              <div class="perfection-dec mr-lg-5 mt-3">
+                                  <h5 class="mb-10" style={{ "textAlign": "center" }}>{page.messageOne.header}</h5>
+                                  <p style={{ "textAlign": "center" }}> {page.messageOne.body}</p>
+                              </div>
+                          </div>
+                          <div class="col-lg-6">
+                              <div class="perfection-dec mr-lg-5 mt-3">
+                                  <h5 class="mb-10" style={{ "textAlign": "center" }}>{page.messageTwo.header}</h5>
+                                  <p style={{ "textAlign": "center" }}>{page.messageTwo.body}</p>
+                              </div>
+                              {/* <div class="perfection-dec mr-lg-5">
+                                  <h5
+                                    class="mb-10"
+                                    style={{ "textAlign": "end" }}
+                                  >
+                                    Functionality meets perfection
+                                  </h5>
+                                  <p style={{ "textAlign": "end" }}>
+                                    But I must explain to you how all this mistaken idea of denouncing sure and praising pain was born and I will give you a complete at the system, expound the actual teachings of the great of the truth, the human happiness was born. teachings of the great of the truth.
+                                  </p>
+                              </div> */}
+                          </div>
+                      </div>
+                  </div>
+              </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-hero-slider-7">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="hero-content-wrap">
-                                                    <div class="hero-text-7 mt-lg-5">
-                                                        <h6 class="mb-20">
-                                                            TOJIRO
-                                                        </h6>
-                                                        <h1>Ash Tray <br/> VGN 100mm</h1>
-
-                                                        <div class="button-box section-space--mt_60">
-                                                            <a href="shop-left-sidebar.html" class="text-btn-normal font-weight--reguler font-lg-p">Discover now</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="inner-images">
-                                                        <div class="image-one">
-                                                            <img src="/assets/images/cms/hero-home-1.png" class="img-fluid" alt="Image"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-us-area section-space--ptb_120">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="about-us-content_6 text-center">
-                                <h2>Upscale Living</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit cras, vestibulum conubia in massa enim varius mauris penatibus natoque, mollis ridiculus nibh nunc odio venenatis tellus. Potenti ridiculus id vitae mollis facilisis risus mauris quisque urna maecenas in, sociis class posuere arcu nisi luctus convallis viverra euismod. Conubia integer nunc sit felis tellus donec erat dui interdum, nibh mi vestibulum nascetur dolor convallis magnis cursus, fringilla vel cum egestas suscipit quisque nam scelerisque.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="banner-video-area overflow-hidden">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="video-container">
-                                <iframe class="video" src="https://www.youtube.com/embed/jrTMMG0zJyI?start=617" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-      {/* <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <article>
-        <header>
-          <h1
-            style={{
-              marginTop: rhythm(1),
-              marginBottom: 0,
-            }}
-          >
-            {`THIS IS THE ABOUT PAGE ${post.frontmatter.title}`}
-          </h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
-        <footer>
-          <Bio />
-        </footer>
-      </article> */}
+              <div class="banner-preduct-wrapper section-space--pt_90">
+                  <div class="container">
+                      <h3 class="mb-10">{page.gallery.label}</h3>
+                      <div class="row row--6">
+                          <div class="col-lg-8 col-md-8">
+                              <div class="banner-product-image mt-10">
+                                  <a href="#">
+                                      <img src={page.gallery.image_one} class="img-fluid" alt="Banner images"/>
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-4">
+                              <div class="banner-product-image mt-10">
+                                  <a href="#">
+                                      <img src={page.gallery.image_two} class="img-fluid" alt="Banner images"/>
+                                  </a>
+                              </div>
+                              <div class="banner-product-image mt-10">
+                                  <a href="#">
+                                      <img src={page.gallery.image_three} class="img-fluid" alt="Banner images"/>
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="col-lg-4">
+                              <div class="banner-product-image mt-10">
+                                  <a href="#">
+                                      <img src={page.gallery.image_four} class="img-fluid" alt="Banner images"/>
+                                  </a>
+                              </div>
+                          </div>
+                          <div class="col-lg-8">
+                              <div class="banner-product-image mt-10">
+                                  <a href="#">
+                                      <img src={page.gallery.image_five} class="img-fluid" alt="Banner images"/>
+                                  </a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
     </Layout>
   )
 }
 
-export default BlogPostTemplate
+export default AboutPageTemplate
 
 export const pageQuery = graphql`
-  query XX($slug: String!) {
+  query AboutPageQuery {
     site {
       siteMetadata {
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
+    markdownRemark(frontmatter: {id: {eq: "about"}}) {
       frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
+        id
+        messageOne {
+          body
+          header
+        }
+        messageTwo {
+          body
+          header
+        }
+        gallery {
+          image_five
+          image_four
+          image_one
+          image_three
+          image_two
+          label
+        }
+        coreValues {
+          four {
+            body
+            header
+          }
+          one {
+            body
+            header
+          }
+          three {
+            body
+            header
+          }
+          two {
+            body
+            header
+          }
+        }
+        videoUrl
       }
     }
   }

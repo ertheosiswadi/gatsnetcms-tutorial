@@ -22,15 +22,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
+        path: `${__dirname}/content/pages`,
+        name: `pages`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/pages`,
-        name: `pages`,
+        path: `${__dirname}/content/products`,
+        name: `products`,
       },
     },
     {
@@ -73,7 +73,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/assets/images/logo/favicon/android-chrome-192x192.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 // require('../assets/js/vendor/vendor.min.js')
 // require('../assets/js/plugins/plugins.js')
@@ -21,45 +21,72 @@ const Layout = ({ location, title, children }) => {
     document.body.appendChild(script);
   });
 
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header
+  const data = useStaticQuery(graphql`
+    query LayoutQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      markdownRemark(frontmatter: {id: {eq: "home"}}) {
+        frontmatter {
+          layout {
+            address
+            companyName
+            email
+            facebook
+            instagram
+            logo
+            twitter
+            waNum
+            waUrl
+          }
+          id
+        }
+      }
+    }
+  `)
+  const layout = data.markdownRemark.frontmatter.layout
+  console.log('Data', layout, data)
 
-  if (location.pathname === rootPath) {
-    header = (
-      <h1
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
-    )
-  }
-  header = (
+  const rootPath = `${__PATH_PREFIX__}/`
+
+  return (
+    <>
+      <Header
+        logoSrc={layout.logo}
+        waNum={layout.waNum}
+        waUrl={layout.waUrl}
+      />
+      <div class="site-wrapper-reveal">
+        {children}
+      </div>
+      <Footer
+        logoSrc={layout.logo}
+        address={layout.address}
+        waNum={layout.waNum}
+        waUrl={layout.waUrl}
+        twitter={layout.twitter}
+        facebook={layout.facebook}
+        instagram={layout.instagram}
+        companyName={layout.companyName}
+      />
+      <SidebarMenu
+        address={layout.address}
+        email={layout.email}
+        waNum={layout.waNum}
+        waUrl={layout.waUrl}
+        twitter={layout.twitter}
+        facebook={layout.facebook}
+        instagram={layout.instagram}
+      />
+      {/* <Helmet><script src={"/assets/js/main.js"}/></Helmet> */}
+    </>
+  )
+}
+
+const Header = (props) => {
+  return (
     <div class="header-area header-area--default bg-white">
       <header class="header-area   header-sticky">
           <div class="container-fluid container-fluid--cp-100">
@@ -67,7 +94,7 @@ const Layout = ({ location, title, children }) => {
                   <div class="col-lg-12 d-none d-md-block">
                       <div class="top-logo-area">
                           <div class="logo text-md-center">
-                              <a href="index.html"><img src="/assets/images/logo/logo-1.png" alt=""/></a>
+                            <Link to="/"><img src={props.logoSrc} alt=""/></Link>
                           </div>
                       </div>
                   </div>
@@ -75,10 +102,10 @@ const Layout = ({ location, title, children }) => {
               <div class="row align-items-center pt-3 pb-3">
                   <div class="col-lg-3 col-lg-3 col-6">
                       <div class="header-right-items content__hidden d-none d-md-block">
-                          <a href="#" class=""><span cl ass="phone-number font-lg-p"> <i class="fa fa-whatsapp" aria-hidden="true"></i> 081628376462 </span></a>
+                          <a href={props.waUrl} class=""><span cl ass="phone-number font-lg-p"> <i class="fa fa-whatsapp" aria-hidden="true"></i> {props.waNum} </span></a>
                       </div>
                       <div class="logo__hidden text-left">
-                          <a href="#"><img src="/assets/images/logo/logo-1.png" alt=""/></a>
+                          <Link to="/"><img src={props.logoSrc} alt=""/></Link>
                       </div>
                   </div>
 
@@ -93,12 +120,11 @@ const Layout = ({ location, title, children }) => {
                                       <Link to='/products'><span>Products</span></Link>
                                   </li>
                                   <li>
-                                      <a href="#"><span>About Us</span></a>
+                                    <Link to='/about'><span>About Us</span></Link>
                                   </li>
                                   <li>
                                       <a href="#"><span>Blog</span></a>
                                   </li>
-
                               </ul>
                           </nav>
                       </div>
@@ -117,55 +143,40 @@ const Layout = ({ location, title, children }) => {
       </header>
     </div>
   )
-  return (
-    <>
-      <header>{header}</header>
-      <div class="site-wrapper-reveal">
-        {children}
-      </div>
-      <Footer/>
-      <SidebarMenu/>
-      {/* <Helmet><script src={"/assets/js/main.js"}/></Helmet> */}
-    </>
-  )
 }
 
-const SiteWrapper = (props) => {
-  return (
-    <div class="site-wrapper-reveal">
-      {props.children}
-    </div>
-  )
-}
-
-const Footer = () => {
+const Footer = (props) => {
   return ( <div class="footer-area-wrapper reveal-footer bg-gray">
   <div class="footer-area section-space--ptb_90">
       <div class="container-fluid container-fluid--cp-100">
           <div class="row footer-widget-wrapper">
               <div class="col-lg-3 col-md-3 col-sm-6 footer-widget">
                   <div class="footer-widget__logo mb-20">
-                      <a href="#"><img src="/assets/images/logo/logo-1.png" alt=""/></a>
+                    <Link to="/"><img src={props.logoSrc} alt=""/></Link>
                   </div>
                   <ul class="footer-widget__list">
-                      <li><i class="icon_pin"></i> Senpai, Jakarta Utara, 10231</li>
-                      <li> <i class="icon_phone"></i><a href="tel:846677028028" class="hover-style-link">08162183849</a></li>
+                      <li><i class="icon_pin"></i>{props.address}</li>
+                      <li>
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        {/* <i class="icon_phone"></i> */}
+                        <a href={props.waUrl} class="hover-style-link">{props.waNum}</a>
+                      </li>
 
                   </ul>
                   <ul class="list footer-social-networks mt-25">
 
                       <li class="item">
-                          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                          <a href={props.twitter} target="_blank" aria-label="Twitter">
                               <i class="social social_twitter"></i>
                           </a>
                       </li>
                       <li class="item">
-                          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                          <a href={props.facebook} target="_blank" aria-label="Facebook">
                               <i class="social social_facebook"></i>
                           </a>
                       </li>
                       <li class="item">
-                          <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                          <a href={props.instagram} target="_blank" aria-label="Instagram">
                               <i class="social social_instagram"></i>
                           </a>
                       </li>
@@ -184,8 +195,7 @@ const Footer = () => {
       <div class="container-fluid container-fluid--cp-100">
           <div class="row align-items-center">
               <div class="col-lg-12 col-md-12">
-                  <span class="copyright-text text-center text-md-left">&copy; 2020 Senpai. <a  href="https://www.google.com/" target="_blank">All Rights Reserved.</a></span>
-
+                  <span class="copyright-text text-center text-md-left">{`© ${(new Date()).getFullYear()} ${props.companyName}. `}<a  href="https://www.google.com/" target="_blank">All Rights Reserved.</a></span>
               </div>
           </div>
       </div>
@@ -193,7 +203,7 @@ const Footer = () => {
 </div> )
 }
 
-  const SidebarMenu = () => {
+  const SidebarMenu = (props) => {
     return (
       <div class="mobile-menu-overlay" id="mobile-menu-overlay">
 
@@ -216,7 +226,7 @@ const Footer = () => {
                               <Link to='/products'>Products</Link>
                           </li>
                           <li class="has-children">
-                              <a href="#">About Us</a>
+                              <Link to='/about'>About Us</Link>
                           </li>
                           <li class="has-children">
                               <a href="#">Blog</a>
@@ -226,15 +236,19 @@ const Footer = () => {
 
                   <div class="mobile-menu-contact-info section-space--mt_60">
                       <h6>Contact Us</h6>
-                      <p>Jl. Cempaka Buah 21 Blok E3 no. 9, Jakarta Utara, Indonesia <br/>rep@senpai.co <br/>08161239123908</p>
+                      <p>
+                        {props.address} <br/>
+                        {props.email} <br/>
+                        <a href={props.waUrl}>{props.waNum}</a>
+                      </p>
                   </div>
 
                   <div class="mobile-menu-social-share section-space--mt_60">
                       <h6>Follow Us</h6>
                       <ul class="social-share">
-                          <li><a href="#"><i class="social social_facebook"></i></a></li>
-                          <li><a href="#"><i class="social social_twitter"></i></a></li>
-                          <li><a href="#"><i class="social social_instagram"></i></a></li>
+                          <li><a href={props.facebook}><i class="social social_facebook"></i></a></li>
+                          <li><a href={props.twitter}><i class="social social_twitter"></i></a></li>
+                          <li><a href={props.instagram}><i class="social social_instagram"></i></a></li>
                       </ul>
                   </div>
 

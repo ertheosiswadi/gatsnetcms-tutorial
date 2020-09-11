@@ -1,24 +1,38 @@
 ---
+id: about
 templateKey: about-page
-title: About Page
-date: "2029-05-01T22:12:03.284Z"
-description: "This is the about page"
-type: "page"
+videoUrl: https://www.youtube.com/embed/7YhyqdVoh0U?start=14
+gallery:
+  label: Get To Know Us
+  image_one: /assets/images/pages/about/salmon-cut-senpai.png
+  image_two: /assets/images/pages/about/salmon-cut-senpai.png
+  image_three: /assets/images/pages/about/fruit-knife-senpai.png
+  image_four: /assets/images/pages/about/salmon-cut-senpai.png
+  image_five: /assets/images/pages/about/dining-senpai.png
+messageOne:
+  header: Functionality meets perfection
+  body: But I must explain to you how all this mistaken idea of denouncing sure
+    and praising pain was born and I will give you a complete at the system,
+    expound the actual teachings of the great of the truth, the human happiness
+    was born. teachings of the great of the truth.
+messageTwo:
+  body: However, I must explain to you how all this mistaken idea of denouncing
+    sure and praising pain was born and I will give you a complete at the
+    system, expound the actual teachings of the great of the truth, the human
+    happiness was born. teachings of the great of the truth.
+  header: Practice meets perfection
+coreValues:
+  one:
+    header: Shop online
+    body: There are many variations pasbut the majority have suffered.
+  two:
+    header: Payment Methodz
+    body: Letraset sheets containing Lorem Ipsum publishing software.
+  three:
+    header: Free Shipping
+    body: Various versions have evolved over the years purpose.
+  four:
+    header: Return Policy
+    body: Various versions have evolved over the years purpose.
 ---
-
 This is me look at me
-
-I'm sure I'll write a lot more interesting things in the future.
-
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](https://en.wikipedia.org/wiki/Salted_duck_egg).
-
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
-
-![Chinese Salty Egg](./salty_egg.jpg)
