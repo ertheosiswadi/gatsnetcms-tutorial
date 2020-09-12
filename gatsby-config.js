@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Upscale Living`,
     author: {
-      name: `Kyle Mathews`,
+      name: `Ertheo Siswadi`,
       summary: `who lives and works in San Francisco building useful things.`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    siteUrl: `https://upscaleliving.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `ertheosiswadi`,
     },
   },
   plugins: [

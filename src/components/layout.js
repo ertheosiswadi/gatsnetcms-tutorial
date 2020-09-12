@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
+import SEO from './seo'
 // require('../assets/js/vendor/vendor.min.js')
 // require('../assets/js/plugins/plugins.js')
 // require('../assets/js/main.js')
@@ -53,6 +54,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <>
+      <SEO/>
       <Header
         logoSrc={layout.logo}
         waNum={layout.waNum}
