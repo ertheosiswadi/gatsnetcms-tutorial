@@ -3,7 +3,7 @@ id: home
 templateKey: home-page
 heroSlider:
   slide1:
-    image: /assets/images/pages/index/hero-home-3.png
+    image: /assets/images/pages/index/origami-gyuto-180mm.png
     brandname: TOJIRO
     itemname_one: Zen Blue
     itemname_two: Shinjuku 120mm
@@ -26,7 +26,7 @@ layout:
   waUrl: https://wa.me/message/2ISBL36QBCXQC1
   facebook: https://www.facebook.com/UpscaleLivingid-107774010986200
   companyName: Upscale Living
-  logo: /assets/images/pages/index/upscale-logo-01.png
+  logo: /assets/images/pages/index/asset-1.png
   instagram: https://www.instagram.com/upscaleliving.id/?hl=en
   twitter: https://twitter.com/Starbucks
   address: Jl. Kebon Raya Bogor Blok C12
