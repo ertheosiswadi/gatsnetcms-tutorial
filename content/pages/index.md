@@ -24,10 +24,10 @@ messageParagraph:
 videoUrl: https://www.youtube.com/embed/7YhyqdVoh0U?start=12
 layout:
   waUrl: https://wa.me/message/2ISBL36QBCXQC1
-  facebook: https://www.facebook.com/Starbucks/
-  companyName: Senpoi
-  logo: /assets/images/pages/index/logo-1.png
-  instagram: https://www.instagram.com/starbucks
+  facebook: https://www.facebook.com/UpscaleLivingid-107774010986200
+  companyName: Upscale Living
+  logo: /assets/images/pages/index/upscale-logo-01.png
+  instagram: https://www.instagram.com/upscaleliving.id/?hl=en
   twitter: https://twitter.com/Starbucks
   address: Jl. Kebon Raya Bogor Blok C12
   waNum: "081682673642"
