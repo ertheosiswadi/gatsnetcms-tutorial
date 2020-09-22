@@ -5,22 +5,16 @@ heroSlider:
   slide1:
     image: /assets/images/pages/index/origami-gyuto-180mm.png
     brandname: TOJIRO
-    itemname_one: Zen Blue
-    itemname_two: Shinjuku 120mm
+    itemname_one: Origami Series
+    itemname_two: Gyuto 180mm
   slide2:
-    image: /assets/images/pages/index/hero-home-1.png
-    brandname: TOJIROZ
-    itemname_one: Sasuke
-    itemname_two: VGM 100mm
+    image: /assets/images/pages/index/img_1737-1-.png
+    brandname: TOJIRO
+    itemname_one: Deba
+    itemname_two: Chef Knife 210mm
 messageParagraph:
   messageHeader: Upscale Living
-  messageBody: Loram ipsum dolor sit amet consectetur adipiscing elit cras,
-    vestibulum conubia in massa enim varius mauris penatibus natoque, mollis
-    ridiculus nibh nunc odio venenatis tellus. Potenti ridiculus id vitae mollis
-    facilisis risus mauris quisque urna maecenas in, sociis class posuere arcu
-    nisi luctus convallis viverra euismod. Conubia integer nunc sit felis tellus
-    donec erat dui interdum, nibh mi vestibulum nascetur dolor convallis magnis
-    cursus, fringilla vel cum egestas suscipit quisque nam scelerisque.
+  messageBody: "Authorized Reseller of Tojiro Knive Japan "
 videoUrl: https://www.youtube.com/embed/7YhyqdVoh0U?start=12
 layout:
   waUrl: https://wa.me/message/2ISBL36QBCXQC1
