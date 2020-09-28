@@ -3,12 +3,12 @@ id: home
 templateKey: home-page
 heroSlider:
   slide1:
-    image: /assets/images/pages/index/origami-gyuto-180mm.png
+    image: /assets/images/pages/index/name-cardasset-3.png
     brandname: TOJIRO
     itemname_one: Origami Series
     itemname_two: Gyuto 180mm
   slide2:
-    image: /assets/images/pages/index/img_1737-1-.png
+    image: /assets/images/pages/index/hero-home-1.png
     brandname: TOJIRO
     itemname_one: Deba
     itemname_two: Chef Knife 210mm
