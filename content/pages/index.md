@@ -4,14 +4,14 @@ templateKey: home-page
 heroSlider:
   slide1:
     image: /assets/images/pages/index/pisau-final.png
-    brandname: TOJIRO
+    brandname: Tojiro
     itemname_one: Origami Series
     itemname_two: Gyuto 180mm
   slide2:
-    image: /assets/images/pages/index/hero-home-1.png
-    brandname: TOJIRO
-    itemname_one: Deba
-    itemname_two: Chef Knife 210mm
+    image: /assets/images/pages/index/vg-10-gyuto-final.png
+    brandname: Tojiro
+    itemname_one: "DP 3 Layered Steel "
+    itemname_two: VG 10 Gyuto
 messageParagraph:
   messageHeader: Upscale Living
   messageBody: "Authorized Reseller of Tojiro Knive Japan "
