@@ -3,7 +3,7 @@ id: home
 templateKey: home-page
 heroSlider:
   slide1:
-    image: /assets/images/pages/index/origami-final.png
+    image: /assets/images/pages/index/pisau-final.png
     brandname: TOJIRO
     itemname_one: Origami Series
     itemname_two: Gyuto 180mm
