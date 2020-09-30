@@ -3,7 +3,7 @@ id: home
 templateKey: home-page
 heroSlider:
   slide1:
-    image: /assets/images/pages/index/upscale-try-2-01.png
+    image: /assets/images/pages/index/origami-knife.png
     brandname: TOJIRO
     itemname_one: Origami Series
     itemname_two: Gyuto 180mm
